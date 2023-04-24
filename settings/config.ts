@@ -48,6 +48,7 @@ const APP_CONFIG: APP_CONFIG = {
   includePersonalDetails: false,
   validUsers: ["YOUR_EMAIL@host.com"],
   superpowers: false,
+  model: "gpt-3.5-turbo", // Specifies the model to use-- "gpt-4-32k" | "gpt-4" | "gpt-3.5-turbo"
 };
 
 // Clear the board
@@ -190,7 +191,9 @@ CultureBot.nlu(async ($bot, msg) => {
   };
 
   const openAI = new OpenAIHelper(
-    CultureBot.getSecret("OPENAI_API_KEY") as string
+    CultureBot.getSecret("OPENAI_API_KEY") as string,
+    "",
+    { model: APP_CONFIG.model }
   );
 
   // Add user/assistant conversation history, if any
@@ -252,7 +255,9 @@ CultureBot.nlu(async ($bot, msg) => {
 // Buttons, chips, card, "form" submissions
 CultureBot.onSubmit(async ($bot, msg) => {
   const openAI = new OpenAIHelper(
-    CultureBot.getSecret("OPENAI_API_KEY") as string
+    CultureBot.getSecret("OPENAI_API_KEY") as string,
+    "",
+    { model: APP_CONFIG.model }
   );
   const { inputs } = msg.data;
   if (inputs.access_request) {

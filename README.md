@@ -58,6 +58,14 @@ OPENAI_API_KEY=sk-0zR7gPLmHQpRMiE8x3IaB82nQxJgZi6TId8wOo3P5lqAf2Qj
 
 In **[config.ts](./settings/config.ts#L49)**, add email addresses to the `validUsers` lists
 
+4a. Pick your desired model in **[config.ts](./settings/config.ts#L51)**, under the `model` entry in APP_CONFIG (defaults to 3.5)
+
+| Model         | Maximum text length       | Remarks                                        |
+| ------------- | ------------------------- | ---------------------------------------------- |
+| gpt-3.5-turbo | 4,096 tokens (~5 pages)   | **[ChatGPT](https://openai.com/blog/chatgpt)** |
+| gpt-4         | 8,192 tokens (~10 pages)  | Requires API access                            |
+| gpt-4-32k     | 32,768 tokens (~40 pages) | Requires special reason for API access         |
+
 5. Start the development server & start talking
 
    ```

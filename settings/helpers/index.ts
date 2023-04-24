@@ -10,6 +10,7 @@ export type APP_CONFIG = {
   validUsers: string[]; // List of permitted users by email address
   requestRoomId?: string; // roomId to send access requests
   superpowers: boolean; // Use (✨experimental✨ superpowers repo)
+  model: "gpt-4-32k" | "gpt-4" | "gpt-3.5-turbo";
 };
 export type ChatHistory = {
   threads: {
